@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "ostream": "cpp",
+        "random": "cpp",
+        "regex": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "algorithm": "cpp",
+        "complex": "cpp",
+        "ratio": "cpp",
+        "cmath": "cpp"
+    }
+}
