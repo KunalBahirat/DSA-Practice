@@ -1,51 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void selectionSort(int a[],int n){
-    int i=0,j=1;
-    for(i=0;i<n-1;i++){
-        for (j =i+1; j<n; j++)
-        {
-            if(a[j]<a[i]){
-                int temp=a[i];
-                a[i]=a[j];
-                a[j]=temp;
-            }
-        }
-        
-    }
-    for(int x=0;x<n;x++){
-        cout<<a[x]<<" ";
-    }
-}
-void bubbleSort(int a[],int n){
-    int counter=1;
-    while (counter<n)
-    {
-        for (int i = 0; i <n-counter; i++)
-        {
-            if(a[i+1]<a[i]){
-                int temp=a[i];
-                a[i]=a[i+1];
-                a[i+1]=temp;
-            }
-        }
-        counter++;
-        
-    }
-    for (int i = 0; i < n; i++)
-    {
-        cout<<a[i]<<" ";
-    }
-
-}
 int main(){
-    int n;
-    cin>>n;
-    int a[n];
-    for(int i=0;i<n;i++){
-        cin>>a[i];
+    int m=3,n=4;
+    int a[m][n];
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+           cin>>a[i][j]; 
+        } 
     }
-    bubbleSort(a,n);
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+           cout<<a[i][j]<<" "; 
+        } 
+        cout<<"\n";
+    }
     return 0;
 }

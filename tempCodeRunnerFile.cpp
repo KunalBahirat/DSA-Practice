@@ -1,2 +1,3 @@
-#include <iostream>
-using namespace std;
+or(int j=1;j<=i;j++){
+        //     cout<<"*";
+        // }
