@@ -20,7 +20,7 @@
 // //     }
 // //     cout<<"Max sum of subarray= "<<ans;
 
-//     // Maximum sum of subarray : optimised approach
+//     // Maximum sum of subarray : optimised approach  or cumulative sum approach
 //     // int n=5;
 //     // int a[n]={1,-4,3,2,1};
 //     // int currsum[n+1];
@@ -44,16 +44,15 @@
 //     // int a[n]={-1,4,-6,7,-4,9,2};
 //     // int currsum=0;
 //     // int maxSum=INT_MIN;
-//     // for(int i=0;i<n;i++){
-//     //     currsum+=a[i];
-//     //     if(currsum<0){
-//     //         currsum=0;
-//     //     }
-//     //     maxSum=max(currsum,maxSum);
-//     //     cout<<maxSum<<" ";
-//     // }
-//     // cout<<"Max Sum= "<<maxSum;
-
+//         // for(int i=0;i<n;i++){
+//         //     currsum+=a[i];
+//         //     maxsum=max(currsum,maxsum);
+//         //     if(currsum<0){
+//         //         currsum=0;
+//         //     }
+//         // }
+//         // cout<<"Max Sum= "<<maxSum;
+// 
 
 //     return 0; 
 // }
@@ -111,7 +110,7 @@ int main(){
     return 0; 
 }
 
-//pair sum problem
+//pair sum problem  of sorted array
 // #include "bits/stdc++.h"
 // using namespace std;
 // int sum(int a,int b){

@@ -3,21 +3,21 @@ using namespace std;
 
 int main(){
     //sum of all subarrays
-    // int n=5;
-    // int arr[n]={1,2,0,7,2};
-    // int sum=0;
-    // for(int i=0;i<n;i++){
-    //     sum=arr[i];
-    //    for(int j=i;j<n;j++){
-    //        if(j==i){
-    //            cout<<arr[i]<<endl;
-    //        }
-    //        else{
-    //            sum=sum+arr[j];
-    //            cout<<sum<<endl;
-    //        }
-    //    }
-    // }
+    int n=5;
+    int arr[n]={1,2,0,7,2};
+    int sum=0;
+    for(int i=0;i<n;i++){
+        sum=arr[i];
+       for(int j=i;j<n;j++){
+           if(j==i){
+               cout<<arr[i]<<endl;
+           }
+           else{
+               sum=sum+arr[j];
+               cout<<sum<<endl;
+           }
+       }
+    }
 
     //Finding length of longest contiguous arithmatic subarray (means differnce between 2 consecutive element is same)
     // int n=11;
@@ -38,18 +38,21 @@ int main(){
 
     // cout<<ans;
 
-    int n=12;
-    int arr[n]={1,2,0,7,2,0,2};
-    int max1=arr[0];int RBday=0;
+
+    // No of record breaking day
+
+    // int n=12;
+    // int arr[n]={1,2,0,7,2,0,2};
+    // int max1=arr[0];int RBday=0;
     
-    for(int i=1;i<n;i++){
-        if(arr[i]>max1 && arr[i+1]<arr[i]){
-            RBday++;
-            max1=max(max1,arr[i]);
-            cout<<max1<<endl;
-        }
-    }
-    cout<<RBday;
+    // for(int i=1;i<n;i++){
+    //     if(arr[i]>max1 && arr[i+1]<arr[i]){
+    //         RBday++;
+    //         max1=max(max1,arr[i]);
+    //         cout<<max1<<endl;
+    //     }
+    // }
+    // cout<<RBday;
 
     return 0;
 }

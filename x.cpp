@@ -2,18 +2,21 @@
 using namespace std;
 
 int main(){
-    int m=3,n=4;
-    int a[m][n];
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-           cin>>a[i][j]; 
-        } 
+    char arr[100];
+    int n;
+    cin>>n;
+    cin>>arr;
+    int low=0,high=n-1;
+    while(low<high){
+        if(arr[low]==arr[high]){
+            low++;
+            high--;
+        }
+        else{
+            cout<<"Not a palindrome";
+            return 0;
+        }
     }
-    for(int i=0;i<m;i++){
-        for(int j=0;j<n;j++){
-           cout<<a[i][j]<<" "; 
-        } 
-        cout<<"\n";
-    }
+    cout<<"Palindrome";
     return 0;
 }
