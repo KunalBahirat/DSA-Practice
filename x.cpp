@@ -1,22 +1,20 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main(){
-    char arr[100];
     int n;
+    int ans=0;
     cin>>n;
-    cin>>arr;
-    int low=0,high=n-1;
-    while(low<high){
-        if(arr[low]==arr[high]){
-            low++;
-            high--;
-        }
-        else{
-            cout<<"Not a palindrome";
-            return 0;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<n;i++){
+        if (ceil((double)sqrt(a[i])) == floor((double)sqrt(a[i]))) {
+            ans+=sqrt(a[i]);
         }
     }
-    cout<<"Palindrome";
+    cout<<ans;
     return 0;
 }

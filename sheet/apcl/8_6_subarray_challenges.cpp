@@ -46,7 +46,7 @@
 //     // int maxSum=INT_MIN;
 //         // for(int i=0;i<n;i++){
 //         //     currsum+=a[i];
-//         //     maxsum=max(currsum,maxsum);
+//         //     maxSum=max(currsum,maxSum);
 //         //     if(currsum<0){
 //         //         currsum=0;
 //         //     }
