@@ -2,7 +2,7 @@
 using namespace std;
  // dynamic array
 int main(){
-    int *p;                 //Decalring array in heap memory
+    int *p;                 //Declaring array in heap memory
     p=new int[5];
     for(int i=0;i<5;i++){
         cin>>p[i];

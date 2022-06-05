@@ -22,42 +22,58 @@ int main(){
 
 //Multiplication of matrix
     
-    // int n1,n2,n3;
-    
-    // cin >> n1 >> n2 >> n3;
-    // int a[n1][n2],b[n2][n3];
-    // for(int i=0;i< n1;i++){
-    //     for(int j=0;j<n2;j++){
+
+    // // no of col of 1st matrix should be equal to rows of 2nd
+    // int l,m,n;
+    // cin>>l>>m>>n;
+    // int a[l][m],b[m][n];
+    // for(int i=0;i<l;i++){
+    //     for(int j=0;j<m;j++){
     //         cin>>a[i][j];
     //     }
     // }
-    // cout<<"\nMAtrix 2"<<endl;
-    // for(int i=0;i< n2;i++){
-    //     for(int j=0;j<n3;j++){
+    // for(int i=0;i<m;i++){
+    //     for(int j=0;j<n;j++){
     //         cin>>b[i][j];
     //     }
     // }
-
-    // int c[n1][n3];
-    // for(int i=0;i<n1;i++){
-    //     for(int j=0;j<n3;j++){
-    //         c[i][j]=0;
-    //     }
-    // }
-
-    // for(int i=0;i<n1;i++){
-    //     for(int j=0;j<n3;j++){
-    //         for(int k=0;k<n2;k++){
-    //             c[i][j]+=a[i][k]*b[k][j];
+    // int c[l][n];
+    // int sum;
+    // for(int i=0;i<l;i++){
+    //     for(int j=0;j<n;j++){
+    //         sum=0;
+    //         for(int k=0;k<m;k++){
+    //             sum+=a[i][k]*b[k][j];
+    //             c[i][j]=sum;
     //         }
     //     }
     // }
-    // for(int i=0;i< n1;i++){
-    //     for(int j=0;j<n3;j++){
+    // cout<<"Matrix A"<<endl;
+    //  for(int i=0;i<l;i++){
+    //     for(int j=0;j<m;j++){
+    //         cout<<a[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    // cout<<endl;
+    // cout<<"Matrix B"<<endl;
+    //  for(int i=0;i<m;i++){
+    //     for(int j=0;j<n;j++){
+    //         cout<<b[i][j]<<" ";
+    //     }
+    //     cout<<endl;
+    // }
+    // cout<<endl;
+    // cout<<l<<" "<<m<<" "<<n<<endl;
+
+    // cout<<"Multiplication of matrix"<<endl;
+    //  for(int i=0;i<l;i++){
+    //     for(int j=0;j<n;j++){
     //         cout<<c[i][j]<<" ";
     //     }
     //     cout<<endl;
     // }
+
 
 
 
