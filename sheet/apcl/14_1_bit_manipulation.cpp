@@ -25,10 +25,10 @@ int main(){
     int pos;
     cin>>pos;
     // cout<<getBit(a,pos);
-    // cout<<setBit(a,pos);
+    cout<<setBit(a,pos);
     // cout<<clearBit(a,pos);
-    int bit;
-    cin>>bit;
-    cout<<updateBit(a,pos,bit);
+    // int bit;
+    // cin>>bit;
+    // cout<<updateBit(a,pos,bit);
     return 0;
 }
