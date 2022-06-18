@@ -1,1 +1,1 @@
-endl
+(p->next)->prev

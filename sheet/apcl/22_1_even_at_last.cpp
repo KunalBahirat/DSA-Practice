@@ -1,40 +1,50 @@
 #include <iostream>
-#include "bits/stdc++.h"
 using namespace std;
 class node{
     public:
-    int data;
-    node *next;
+        int data;
+        node* next;
 };
 class LinkedList{
     public:
         node *first;
         LinkedList(){
-            first=NULL;    
+            first=NULL;
         }
         LinkedList(int arr[],int n);
         ~LinkedList();
+
         void display();
-        void reverse();
+        void even_at_last();
 };
+void LinkedList :: display(){
+    node *p=first;
+    while(p){
+        cout<<p->data<<" ";
+        p=p->next;
+    }
+
+} 
 
 LinkedList :: LinkedList(int arr[],int n){
     int i;
-    node *t, *last;
+    node* t,*last;
     first=new node;
     first->data=arr[0];
     first->next=NULL;
     last=first;
-
     for(i=1;i<n;i++){
         t=new node;
         t->data=arr[i];
         t->next=NULL;
         last->next=t;
-        last=t;    
+        last=t;
     }
+
+    // display();
 }
-LinkedList ::~LinkedList(){
+
+LinkedList :: ~LinkedList(){
     node *p=first;
     while(first){
         first=first->next;
@@ -43,27 +53,19 @@ LinkedList ::~LinkedList(){
     }
 }
 
-void LinkedList :: display(){
-    node*p=first;
-    while(p){
-        cout<<p->data<<" ";
+void LinkedList :: even_at_last(){
+    node* p=first,*evenStart,*q;
+    while((p->next)->data%2!=0){
         p=p->next;
     }
-    cout<<endl;
+    q=p->next;evenStart=q;
 }
-void LinkedList :: reverse(){
-    node *p=first;
-    node *q=NULL,*r=NULL;
-    while(p){
-        r=q;q=p;p=p->next;
-        q->next=r;
-    }
-    first =q;
 
-}
 int main(){
-    int arr[]={1,2,3,4,5};
-    LinkedList k(arr,5);
-    k.display();
-    
+    int arr[]={1,3,4,5,6,2};
+    int n=6;
+    LinkedList k(arr,n);
+    k.display();cout<<endl;
+    k.even_at_last();
+    return 0;
 }

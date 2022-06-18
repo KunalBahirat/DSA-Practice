@@ -1,21 +1,23 @@
 #include <iostream>
-#include "bits/stdc++.h"
 using namespace std;
 class node{
     public:
-    int data;
-    node *next;
+        int data;
+        node* next;
 };
+
 class LinkedList{
+    private :
     public:
         node *first;
         LinkedList(){
-            first=NULL;    
+            first=NULL;
         }
         LinkedList(int arr[],int n);
         ~LinkedList();
+
+        void reversek(node *,node *,node *);
         void display();
-        void reverse();
 };
 
 LinkedList :: LinkedList(int arr[],int n){
@@ -34,6 +36,7 @@ LinkedList :: LinkedList(int arr[],int n){
         last=t;    
     }
 }
+
 LinkedList ::~LinkedList(){
     node *p=first;
     while(first){
@@ -43,27 +46,41 @@ LinkedList ::~LinkedList(){
     }
 }
 
+void LinkedList :: reversek(node *p,node *q,node *r){
+    if(q==NULL){
+        return;
+    }
+    q->next=p;
+    p->next=r;
+    q=first;
+    q->next=reversek(q,r,r->next);
+}
+
 void LinkedList :: display(){
-    node*p=first;
+    node *p=first;
     while(p){
         cout<<p->data<<" ";
         p=p->next;
     }
-    cout<<endl;
 }
-void LinkedList :: reverse(){
-    node *p=first;
-    node *q=NULL,*r=NULL;
-    while(p){
-        r=q;q=p;p=p->next;
-        q->next=r;
-    }
-    first =q;
 
-}
+
 int main(){
-    int arr[]={1,2,3,4,5};
-    LinkedList k(arr,5);
+    int n=6;
+    int arr[n]={1,2,3,4,5,6};
+    LinkedList k(arr,n);
+    node *p=k.first;
+    node *q=p->next;
+    node *r=q->next;
+    k.reversek(p,q,r);
     k.display();
-    
+
+    p=NULL;
+    delete p;
+    q=NULL;
+    delete q;
+    r=NULL;
+    delete r;
+
+    return 0;
 }

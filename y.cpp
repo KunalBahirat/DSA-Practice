@@ -1,57 +1,65 @@
 #include <iostream>
-#include <string>
-#include <algorithm>
-#include "bits/stdc++.h"
 using namespace std;
-long buzzTime(long N, long M, long L, long H[], long A[])
-{
-long low = 0;
-         long high = max(L,M);
-         long ans =0;
-         while(low<=high)
-         {
-             long mid = (low+high)/2;
-             long fast =0;
-             for(long i=0;i<N;i++)
-             {
-                 if(H[i]+A[i]*mid>=L)
-                 fast+=H[i]+A[i]*mid;
-                
-             }
-             cout<<fast<<endl;
-             cout<<low<<endl;
-             cout<<mid<<endl;
-             cout<<high<<endl;
 
-             if(fast>=M)
-             {
-                 ans = mid;
-                 high = mid-1;
-             }
-             else low = mid+1;
-             
-         }
-         
-         return ans;
+class node{
+    public:
+        int data;
+        node* next;
+};
+class LinkedList{
+    public:
+        node *first;
+        LinkedList(){
+            first=NULL;
+        }
+        LinkedList(int arr[],int n);
+        ~LinkedList();
+
+        void display(){
+            node *p=first;
+            while(p){
+                cout<<p->data<<" ";
+                p=p->next;
+            }
+        }
+        void rmDuplicates();
+};
+
+LinkedList :: LinkedList(int arr[],int n){
+    int i;
+    node *t,*last;
+    first=new node;
+    first->data=arr[0];
+    first->next=NULL;
+    last=first;
+
+    for(i=1;i<n;i++){
+        t=new node;
+        t->data=arr[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+
 }
-int main()
-{
-    long l, m, n;
-    cin >> l >> m >> n;
-    long H[n], A[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> H[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        cin >> A[i];
+
+LinkedList :: ~LinkedList (){
+    node *p=first;
+    while(p){
+        first=first->next;
+        delete p;
+        p=first;
     }
 
-    long ans = buzzTime(n, m, l, H, A);
+}
 
-    cout << "Yeah!!" << endl;
-    cout << ans;
-
+int main(){
+    int n=6;
+    int arr[n]={3,5,5,8,8,8};
+    LinkedList k(arr,n);
+    k.display();
+    k.rmDuplicates();    
+    cout<<endl;
+    k.display();
     return 0;
 }

@@ -1,117 +1,122 @@
 #include <iostream>
 #include "bits/stdc++.h"
 using namespace std;
+//creating template class 
+// template <class T> 
+// Node <T> 
 //deleting pointer is necessary
 
+template <class T> 
 class node{
     public:
-        int data;
+        T data;
         node* next;
 };
 
+template <class T>
 class LinkedList{
     private :
     public:
-        node *first;
+        node <T> *first;
         LinkedList(){
             first=NULL;
         }
-        LinkedList(int arr[],int n);
+        LinkedList(T arr[],T n);
         ~LinkedList();
 
         void display();
-        void rDisplay(node *);
+        void rDisplay(node <T> *);
         void count();
-        int sum(node *);
-        int maxi();
-        int LSearch(int);
-        int improved_Lsearch(int);
-        void insert(int k,int i);
-        void inser_at_last(int );
-        void insert_in_sorted_list(int);
-        void delete_element(int);
+        T sum(node <T> *);
+        T maxi();
+        T LSearch(T);
+        T improved_Lsearch(T);
+        void insert(T k,T i);
+        void inser_at_last(T );
+        void insert_in_sorted_list(T);
+        void delete_element(T);
         bool isSorted();
-        bool Ris_sorted(node *,node *);
+        bool Ris_sorted(node <T> *,node <T> *);
         void rmDuplicates();
-        void reverse(int);
+        void reverse(T);
         void reverse2();
-        void recursiveReverse(node *,node *);
-        void conacatenate(node*);
-        void merge(node *,node *);
+        void recursiveReverse(node <T> *,node <T> *);
+        void conacatenate(node <T>*);
+        void merge(node <T> *,node <T> *);
 };
-
-LinkedList :: LinkedList(int arr[],int n){
-    int i;
-    node *t, *last;
-    first=new node;
+template <class T>
+LinkedList <T> :: LinkedList(T arr[],T n){
+    T i;
+    node <T> *t, *last;
+    first=new node <T>;
     first->data=arr[0];
     first->next=NULL;
     last=first;
 
     for(i=1;i<n;i++){
-        t=new node;
+        t=new node <T>;
         t->data=arr[i];
         t->next=NULL;
         last->next=t;
         last=t;    
     }
 }
-
-LinkedList ::~LinkedList(){
-    node *p=first;
+template <class T>
+LinkedList <T> ::~LinkedList(){
+    node <T> *p=first;
     while(first){
         first=first->next;
         delete p;
         p=first;
     }
 }
-
-void LinkedList :: display(){
-    node*p=first;
+template <class T>
+void LinkedList <T> :: display(){
+    node <T>*p=first;
     while(p){
         cout<<p->data<<" ";
         p=p->next;
     }
     cout<<endl;
 }
-
-void LinkedList :: count(){
-    node *p=first;
-    int count=0;
+template <class T>
+void LinkedList <T> :: count(){
+    node <T> *p=first;
+    T count=0;
     while(p){
         count++;
         p=p->next;
     }
     cout<<"Count = "<<count;
 }
-
-void LinkedList :: rDisplay(node *p){
+template <class T>
+void LinkedList <T> :: rDisplay(node <T> *p){
     if(!p){
         return;
     }
     cout<<p->data<<" ";
     rDisplay(p->next);
 }
-
-int LinkedList :: sum(node *p){
+template <class T>
+T LinkedList <T> :: sum(node <T> *p){
     if(!p){
         return 0;
     }
     return sum(p->next) +p->data;
 }
-
-int LinkedList :: maxi(){
-    node *p=first;
-    int maxi=INT_MIN;
+template <class T>
+T LinkedList <T> :: maxi(){
+    node <T> *p=first;
+    T maxi=INT_MIN;
     while(p!=NULL){
         maxi=max(maxi,p->data);
         p=p->next;
     }
     return maxi;
 }
-
-int LinkedList :: LSearch(int k){
-    node *p=first;
+template <class T>
+T LinkedList <T> :: LSearch(T k){
+    node <T> *p=first;
     for(int i=0;i<6;i++){
         if(p->data==k){
             return i;
@@ -120,11 +125,11 @@ int LinkedList :: LSearch(int k){
     }
     return -1;
 }
-
-int LinkedList :: improved_Lsearch(int k){
-    node *p=first;
-    node *q;
-    int index=0;
+template <class T>
+T LinkedList <T> :: improved_Lsearch(T k){
+    node <T> *p=first;
+    node <T> *q;
+    T index=0;
     while(p){
         if(p->data==k){
             q->next=p->next;
@@ -139,10 +144,10 @@ int LinkedList :: improved_Lsearch(int k){
     }
     return -1;
 }
-
-void LinkedList :: insert(int k,int index){
-    node *p=first;
-    node *t=new node;
+template <class T>
+void LinkedList <T> :: insert(T k,T index){
+    node <T> *p=first;
+    node <T> *t=new node <T>;
     if(index==0){
         t->data=k;
         t->next=p;
@@ -157,10 +162,10 @@ void LinkedList :: insert(int k,int index){
     p->next=t;
 
 }
-
-void LinkedList :: inser_at_last(int x){
-    node * t=new node;
-    node* last;
+template <class T>
+void LinkedList <T> :: inser_at_last(T x){
+    node <T> * t=new node <T>;
+    node <T>* last;
     t->data=x;
     t->next=NULL;
     if(first==NULL){
@@ -171,13 +176,13 @@ void LinkedList :: inser_at_last(int x){
         // last=t;
     }
 }
-
-void LinkedList :: insert_in_sorted_list(int x){
-    node* p=first,*q;
+template <class T>
+void LinkedList <T> :: insert_in_sorted_list(T x){
+    node <T>* p=first,*q;
     q=NULL;
 
     if(x<p->data){
-        node *t=new node;
+        node <T> *t=new node <T>;
         t->data=x;
         t->next=first;
         first=t;
@@ -188,16 +193,16 @@ void LinkedList :: insert_in_sorted_list(int x){
         q=p;
         p=p->next;
     }
-    node *t=new node;
+    node <T> *t=new node <T>;
     t->data=x;
     t->next=q->next;
     q->next=t;
 }
-
-void LinkedList :: delete_element(int index){
-    node *p=first;
-    node* q =NULL;
-    int x;
+template <class T>
+void LinkedList <T> :: delete_element(T index){
+    node <T> *p=first;
+    node <T>* q =NULL;
+    T x;
     if(index==0){
         q=p;
         p=p->next;
@@ -217,10 +222,10 @@ void LinkedList :: delete_element(int index){
     cout<<"x = "<<x<<endl;
 
 }
-
-bool LinkedList :: isSorted(){
-    node *p=first;
-    int x=INT_MIN;
+template <class T> 
+bool LinkedList <T> :: isSorted(){
+    node <T> *p=first;
+    T x=INT_MIN;
     while(p){
         if(p->data < x)
             return false;
@@ -229,18 +234,18 @@ bool LinkedList :: isSorted(){
     }
     return true;
 }
-
-bool LinkedList :: Ris_sorted(node *p,node * q){
+template <class T>
+bool LinkedList <T> :: Ris_sorted(node <T> *p,node <T> * q){
     if(!p){
         return true;
     }
     bool restList = Ris_sorted(p->next,q->next);
     return (q->data < p->data) && restList ;
 }
-
-void LinkedList :: rmDuplicates(){
-    node *p=first;
-    node *q=p->next;
+template <class T>
+void LinkedList <T> :: rmDuplicates(){
+    node <T> *p=first;
+    node <T> *q=p->next;
     while(q){
         if(p->data != q->data){
             p=p->next;
@@ -253,11 +258,11 @@ void LinkedList :: rmDuplicates(){
         }
     }
 } 
-
-void LinkedList :: reverse(int n){
-    node *p=first;
-    int a[n];
-    int i=n-1;
+template <class T>
+void LinkedList <T> :: reverse(T n){
+    node <T> *p=first;
+    T a[n];
+    T i=n-1;
     while(p){
         a[i]=p->data;
         p=p->next;
@@ -269,9 +274,9 @@ void LinkedList :: reverse(int n){
         p=p->next;
     }
 }
-
-void LinkedList :: reverse2(){
-    node *r,*q,*p;
+template <class T>
+void LinkedList <T> :: reverse2(){
+    node <T> *r,*q,*p;
     p=first;
     q=NULL;
     r=NULL;
@@ -283,8 +288,8 @@ void LinkedList :: reverse2(){
     }
     first=q;         //IMP step
 }
-
-void LinkedList :: recursiveReverse(node *q,node*p){
+template <class T>
+void LinkedList <T> :: recursiveReverse(node <T> *q,node <T>*p){
     if(p!=NULL){
         recursiveReverse( p ,p->next);
         p->next=q;
@@ -293,18 +298,18 @@ void LinkedList :: recursiveReverse(node *q,node*p){
         first=q;
     }
 }
-
-void LinkedList :: conacatenate(node *q){           // p=first , q=second
-    node *p=first;
+template <class T>
+void LinkedList <T> :: conacatenate(node <T> *q){           // p=first , q=second
+    node <T> *p=first;
     while(p->next!=NULL){
         p=p->next;
     }
     p->next=q;
 }
-
-void LinkedList :: merge(node *fir,node*sec){
-    node *third=NULL;
-    node *last=NULL;
+template <class T>
+void LinkedList <T> :: merge(node <T> *fir,node <T>*sec){
+    node <T> *third=NULL;
+    node <T> *last=NULL;
     if(fir->data < sec->data){
         third=last=fir;
         fir=fir->next;
@@ -387,15 +392,16 @@ int main(){
     // k.display();
 
     // k.display();
-    // node* q=NULL,*p=k.first;
+    // node <T>* q=NULL,*p=k.first;
     // k.recursiveReverse(q,p);
     // k.display();
 
 
     int arrOne[4]={2,8,10,16};
     int arrSecond[4]={4,7,12,14};
-    LinkedList one(arrOne,4);
-    LinkedList two(arrSecond,4);
+    
+    LinkedList<int> one(arrOne,4);
+    LinkedList<int> two(arrSecond,4);
     // one.conacatenate(two.first);
     // one.display();
 
