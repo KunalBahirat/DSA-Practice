@@ -36,19 +36,19 @@ class D: public B{
 };
 int main(){
     // Ambiguity 1
-    // Derived d;
-    // Base1 b1;
-    // Base2 b2;
-    // b1.greet();
-    // b2.greet();
-    // d.greet();
+    Derived d;
+    Base1 b1;
+    Base2 b2;
+    b1.greet();
+    b2.greet();
+    d.greet();
 
     // Ambiguity 2
 
-    B b;
-    D d;
-    b.say();
-    d.say();
+    // B b;
+    // D d;
+    // b.say();
+    // d.say();
 
     return 0;
 }

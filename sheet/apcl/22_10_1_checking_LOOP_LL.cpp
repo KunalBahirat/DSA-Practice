@@ -15,7 +15,8 @@ class LinkedList{
         ~LinkedList();
 
         void display();
-        bool checkLoop();
+        node * checkLoop();
+        void removeLoop(node *);
 };
 LinkedList :: LinkedList(int arr[],int n){
     int i;
@@ -31,7 +32,7 @@ LinkedList :: LinkedList(int arr[],int n){
         last->next=t;
         last=t;
     }
-    // last->next = (head->next)->next;        // for arr1
+    last->next = (head->next)->next;        // for arr1
 
 }
 
@@ -54,21 +55,35 @@ void LinkedList :: display(){
     }
 } 
 
-bool LinkedList :: checkLoop(){
+node * LinkedList :: checkLoop(){
     node * p,*q;
     p=head;q=head;
-    do{
+    while(p){
         p=p->next;
         q=q->next;
-        if(q!=NULL){
-            q=q->next;
+        if(p!=NULL){
+            p=p->next;
         }
         else{
-            q=NULL;
+            cout<<"No Loop "<<endl;
+            return NULL;
         }
-    }while(p!=q);
+        if(p==q){
+            cout<<"LOOP is Found bro!"<<endl;
+            return p;
+        }
+    }
 
-    return (p==q) ? true : false;
+}
+
+void LinkedList :: removeLoop(node *p){
+    node *q=p;
+    p=head;
+    while(p->next != q->next){
+        p=p->next;
+        q=q->next;
+    }
+    q->next=NULL;
 }
 
 int main(){
@@ -78,7 +93,12 @@ int main(){
     int arr2[n2]={1,2,3,4};
 
     LinkedList k1(arr1,n1);
+    node *p=k1.checkLoop();
+    if(p!=NULL)
+        k1.removeLoop(p);
+    node *r=k1.checkLoop();
     k1.display();
-    cout<<k1.checkLoop()<<endl;
+
+
     return 0;
 }

@@ -9,7 +9,6 @@ class node{
 };
 
 class LinkedList{
-    private :
     public:
         node *first;
         LinkedList(){
@@ -22,6 +21,7 @@ class LinkedList{
         void display();
         void insert(int,int);
         void deleteNode(int);
+        int length();
         
 };
 
@@ -61,30 +61,44 @@ void LinkedList :: display(){
     }
     cout<<endl;
 }
+int LinkedList :: length(){
+    node *p=first;
+    int length=0;
+    while(p){
+        length++;
+        p=p->next;
+    }
+    cout<<"length = "<<length<<endl;
+    return length;
 
-void LinkedList :: insert(int index,int x){
+}
+void LinkedList :: insert(int x,int pos){
     node *t=new node;
-     
-    if(index==0){
-        t->prev=NULL;
-        t->data=x;
-        t->next=first;
-        first->prev=t;
-        first=t;
+    t->data=x;
+    int i;
+    if(pos<=0 || pos>(length()+1)) {cout<<"Invalid Position"<<endl;return;}
+    if(pos==1){
+        if(first==NULL){
+            t->prev=t->next=NULL;
+            first=t;
+        }
+        else{
+            t->prev=NULL;
+            t->next=first;
+            first->prev=t;
+            first=t;
+        }
     }
     else{
         node *p=first;
-        for(int i=0;i<index-1;i++){
+        for(i=1;i<pos-1;i++){
             p=p->next;
         }
-        t->data=x;
-        t->next=p->next;
-        if(p->next)
-            (p->next)->prev=t;
-        p->next=t;
         t->prev=p;
+         t->next=p->next;
+        if(p->next) p->next->prev=t;
+        p->next=t;
     }
-
 }
 
 void LinkedList :: deleteNode(int pos){
@@ -123,8 +137,8 @@ int main(){
     int arr[n]={6,9,3,7,2};
     LinkedList k(arr,n);
     // k.display();
-    // k.insert(0,10);
-    // k.insert(3,10);
+    // k.insert(10,0);
+    // k.insert(10,3);
     // k.display();
 
     // k.deleteNode(0);

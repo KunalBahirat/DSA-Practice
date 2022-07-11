@@ -78,10 +78,7 @@ int Stack :: stackTop(){
 }
 
 bool Stack :: isEmpty(){
-    if(top==-1){
-        return true;
-    }
-    return false;
+    return top==-1;
 }
 
 bool Stack :: isFull(){

@@ -392,15 +392,15 @@ int main(){
     // k.display();
 
 
-    int arrOne[4]={2,8,10,16};
-    int arrSecond[4]={4,7,12,14};
-    LinkedList one(arrOne,4);
-    LinkedList two(arrSecond,4);
+    // int arrOne[4]={2,8,10,16};
+    // int arrSecond[4]={4,7,12,14};
+    // LinkedList one(arrOne,4);
+    // LinkedList two(arrSecond,4);
     // one.conacatenate(two.first);
     // one.display();
 
-    one.merge(one.first,two.first);
-    one.display(); 
+    // one.merge(one.first,two.first);
+    // one.display(); 
 
 
 

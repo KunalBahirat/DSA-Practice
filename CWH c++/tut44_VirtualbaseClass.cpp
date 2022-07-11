@@ -13,7 +13,7 @@
             '                  class D                   '
             ----------------->a       a <-------------------
 
-        To provide this double inheritation of a and avoid creating ambiguity we use Virtual base class
+        To avoid this double inheritation of a and avoid creating ambiguity we use Virtual base class
 
     Syntax:  
             class B: virtual public A
