@@ -14,6 +14,7 @@ int main(){
         sum+=pow(lastdigit,3);
         n=n/10;
     }
+    cout<<sum<<endl;
     if(sum==initialN){cout<<"Armstrong Number";}
     else{cout<<"Not an Armstrong Number";}
 

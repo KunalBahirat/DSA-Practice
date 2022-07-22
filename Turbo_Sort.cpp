@@ -7,14 +7,13 @@ int main()
 {
     int n;
     cin>>n;
-    set <int> s;
+    int s[n];
     for(int i=0;i<n;i++){
-        int x;
-        cin>>x;
-        s.insert(x);
+        cin>>s[i];        
     }
-    for(auto i:s){
-        cout<<i<<"\n";
+    sort(s,s+n);
+    for(int i=0;i<n;i++){
+        cout<<s[i]<<"\n";
     }
     
     return 0;
