@@ -1,65 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class node{
-    public:
-        int data;
-        node* next;
-};
-class LinkedList{
-    public:
-        node *first;
-        LinkedList(){
-            first=NULL;
-        }
-        LinkedList(int arr[],int n);
-        ~LinkedList();
-
-        void display(){
-            node *p=first;
-            while(p){
-                cout<<p->data<<" ";
-                p=p->next;
-            }
-        }
-        void rmDuplicates();
-};
-
-LinkedList :: LinkedList(int arr[],int n){
-    int i;
-    node *t,*last;
-    first=new node;
-    first->data=arr[0];
-    first->next=NULL;
-    last=first;
-
-    for(i=1;i<n;i++){
-        t=new node;
-        t->data=arr[i];
-        t->next=NULL;
-        last->next=t;
-        last=t;
-    }
-
-}
-
-LinkedList :: ~LinkedList (){
-    node *p=first;
-    while(p){
-        first=first->next;
-        delete p;
-        p=first;
-    }
-
-}
-
 int main(){
-    int n=6;
-    int arr[n]={3,5,5,8,8,8};
-    LinkedList k(arr,n);
-    k.display();
-    k.rmDuplicates();    
-    cout<<endl;
-    k.display();
+    unordered_map <string ,int> ourmap;
+    ourmap["abc"]=1;    
+    ourmap["abc2"]=2;    
+    ourmap["abc3"]=3;    
+    ourmap["abc4"]=4;    
+    ourmap["abc5"]=5;    
+    ourmap["abc6"]=6;   
+
+     unordered_map <string ,int> :: iterator it1=ourmap.find("abc");
+     ourmap.erase(it1);
+     auto it2=ourmap.find("abc2");
+     ourmap.erase(it2);
+
+    unordered_map <string ,int> :: iterator it=ourmap.begin();
+    while(it != ourmap.end()){
+        cout<<"Key = "<<it->first<<" value = "<<it->second<<endl;
+        it++;
+    }
+
+
+
     return 0;
 }

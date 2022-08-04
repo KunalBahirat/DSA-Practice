@@ -1,0 +1,1 @@
+{"name":"Local: 23_5_valid_parenthesis","url":"c:\\Users\\Kunal\\Desktop\\DSA\\apnclg\\23_5_valid_parenthesis.cpp","tests":[{"id":1659250566236,"input":"(])","output":"\nfalse"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Kunal\\Desktop\\DSA\\apnclg\\23_5_valid_parenthesis.cpp","group":"local","local":true}

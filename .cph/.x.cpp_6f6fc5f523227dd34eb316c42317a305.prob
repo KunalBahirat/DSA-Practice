@@ -1,1 +1,1 @@
-{"name":"Local: x","url":"c:\\Users\\Kunal\\Desktop\\DSA\\x.cpp","tests":[{"id":1654153371754,"input":"welcome to mettle","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Kunal\\Desktop\\DSA\\x.cpp","group":"local","local":true}
+{"name":"Local: x","url":"c:\\Users\\Kunal\\Desktop\\DSA\\x.cpp","tests":[{"id":1654153371754,"input":"[1,2,6,3,4,5,6]\n6","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Kunal\\Desktop\\DSA\\x.cpp","group":"local","local":true}
