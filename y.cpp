@@ -1,27 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
+class CWH{
+    protected:
+        string title;
+        int rating;
+    public:
+        CWH(string s,int r){
+            title=s;
+            rating=r;
+        }
+        virtual void display(){};
 
+};
+class CWHVideo : public CWH{
+    float videoLength;
+    public:
+        CWHVideo(string s,int r,float vl):CWH(s,r){
+            videoLength=vl;
+        }
+        void display(){
+            cout<<"this is video with title "<<title<<endl;
+            cout<<"rating "<<rating<<" out of 5"<<endl;
+            cout<<"videolength is "<<videoLength<<" min"<<endl;
+        }
+};
+// class CWHText : public CWH{
+//     int words;
+//     public:
+//         CWHText(string s,int r,int wc):CWH(s,r){
+//             words=wc;
+//         }
+//         void display(){
+//             cout<<"this is text tutorial with title "<<title<<endl;
+//             cout<<"rating "<<rating<<" out of 5"<<endl;
+//             cout<<"words are "<<words<<endl;
+//         }
+// };
 int main(){
-    unordered_map <string ,int> ourmap;
-    ourmap["abc"]=1;    
-    ourmap["abc2"]=2;    
-    ourmap["abc3"]=3;    
-    ourmap["abc4"]=4;    
-    ourmap["abc5"]=5;    
-    ourmap["abc6"]=6;   
-
-     unordered_map <string ,int> :: iterator it1=ourmap.find("abc");
-     ourmap.erase(it1);
-     auto it2=ourmap.find("abc2");
-     ourmap.erase(it2);
-
-    unordered_map <string ,int> :: iterator it=ourmap.begin();
-    while(it != ourmap.end()){
-        cout<<"Key = "<<it->first<<" value = "<<it->second<<endl;
-        it++;
-    }
-
-
-
+    string a="DJtutorial";
+    float vdolen=25.49;
+    int rating=3;
+    CWHVideo djVideo(a,rating,vdolen);
+    djVideo.display();
     return 0;
 }
