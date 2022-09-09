@@ -340,13 +340,13 @@ void LinkedList :: merge(node *fir,node*sec){
 }
 
 int main(){
-    // int arr[]={3,5,6,10,26,20};
-    // int n=6;
-    // LinkedList k(arr,n);
+    int arr[]={3,5,6,10,26,20};
+    int n=6;
+    LinkedList k(arr,n);
 
     // k.rDisplay(k.first);    // make first public to run function
 
-    // k.display();
+    k.display();
 
     // cout<<"Sum ="<<k.sum(k.first)<<endl;
 
@@ -387,9 +387,9 @@ int main(){
     // k.display();
 
     // k.display();
-    // node* q=NULL,*p=k.first;
-    // k.recursiveReverse(q,p);
-    // k.display();
+    node* q=NULL,*p=k.first;
+    k.recursiveReverse(q,p);
+    k.display();
 
 
     // int arrOne[4]={2,8,10,16};

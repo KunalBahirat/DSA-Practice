@@ -1,25 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-class A{
-    public:
-        static int num;
-        A(){
-            num++;
-        }
-        static int getStatic(){
-            return num;
-        }
-
-};
-int A::num=10;
+#include <limits>
 int main(){
-    cout<<A::num<<endl;
-    A obj;
-    cout<<A::num<<endl;
-    A obj2;
-    cout<<A::num<<endl;
-    cout<<obj2.num<<endl;
-
-    cout<<A::getStatic();
+    // cout<<numeric_limits<double>::digits10;
+    cout<<numeric_limits<long long>::digits10;
     return 0;
 }

@@ -1,46 +1,67 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-class CWH{
-    protected:
-        string title;
-        int rating;
-    public:
-        CWH(string s,int r){
-            title=s;
-            rating=r;
+struct node
+    {
+        int data;
+        struct node* next;
+    
+        node(int x){
+            data = x;
+            next = NULL;
         }
-        virtual void display(){};
+    
+    }*head;
 
-};
-class CWHVideo : public CWH{
-    float videoLength;
+class Solution
+{
     public:
-        CWHVideo(string s,int r,float vl):CWH(s,r){
-            videoLength=vl;
+    struct node *reverse (struct node *head, int k)
+    { 
+        if(head==NULL or head->next==NULL) return head;
+        node  *p=head,*q=NULL,*r=NULL;
+        int initK=k;
+        while(p and k>0){
+            r=q;
+            q=p;
+            p=p->next;
+            q->next=r;
+            k--;
         }
-        void display(){
-            cout<<"this is video with title "<<title<<endl;
-            cout<<"rating "<<rating<<" out of 5"<<endl;
-            cout<<"videolength is "<<videoLength<<" min"<<endl;
-        }
+        node *nextNode=reverse(p,initK);
+        head->next=nextNode;
+        head=q;
+        return head;
+    }
 };
-// class CWHText : public CWH{
-//     int words;
-//     public:
-//         CWHText(string s,int r,int wc):CWH(s,r){
-//             words=wc;
-//         }
-//         void display(){
-//             cout<<"this is text tutorial with title "<<title<<endl;
-//             cout<<"rating "<<rating<<" out of 5"<<endl;
-//             cout<<"words are "<<words<<endl;
-//         }
-// };
+void print(node *head){
+    while(head){
+        cout<<head->data<<" ";
+        head=head->next; 
+    }
+    cout<<"\n";
+}
 int main(){
-    string a="DJtutorial";
-    float vdolen=25.49;
-    int rating=3;
-    CWHVideo djVideo(a,rating,vdolen);
-    djVideo.display();
+    // head=new node(1);
+    // head->next=new node(2);
+    // head->next->next=new node(2);
+    // head->next->next->next=new node(4);
+    // head->next->next->next->next=new node(5);
+    // head->next->next->next->next->next=new node(6);
+    // head->next->next->next->next->next->next=new node(7);
+    // head->next->next->next->next->next->next->next=new node(8);
+    // head->next->next->next->next->next->next->next->next=NULL;
+    head=new node(1);
+    head->next=new node(2);
+    head->next->next=new node(3);
+    head->next->next->next=new node(4);
+    head->next->next->next->next=new node(5);
+    // head->next->next->next->next->next=new node(6);
+    // head->next->next->next->next->next->next=new node(7);
+    // head->next->next->next->next->next->next->next=new node(8);
+    head->next->next->next->next->next=NULL;
+    print(head);
+    Solution s;
+    node *root=s.reverse(head,3);
+    print(root);
     return 0;
 }

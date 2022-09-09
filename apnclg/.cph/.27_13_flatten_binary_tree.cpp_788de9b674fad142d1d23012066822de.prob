@@ -1,0 +1,1 @@
+{"name":"Local: 27_13_flatten_binary_tree","url":"c:\\Users\\Kunal\\Desktop\\DSA\\apnclg\\27_13_flatten_binary_tree.cpp","tests":[{"id":1660577496478,"input":"7\n10 20 15 2 23 90 67","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Kunal\\Desktop\\DSA\\apnclg\\27_13_flatten_binary_tree.cpp","group":"local","local":true}

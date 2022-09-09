@@ -2,7 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 #include <fstream>
-
+// classes:
+//    1. fstreambase
+//     2. ifstream --> derived from fstreambase class
+//     3. ofstream --> derived from fstreambase class
 int main(){
     cout<<"Enter your name "<<endl;
     char arr[100];

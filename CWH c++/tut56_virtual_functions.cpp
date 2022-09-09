@@ -31,7 +31,7 @@ class CWHText : public CWH{
         CWHText(char *s,int r,int wc):CWH(s,r){
             words=wc;
         }
-        virtual void display(){
+        void display(){
             cout<<"Display fun of ** Text ** class"<<endl;
             cout<<"this is text tutorial with title "<<title<<endl;
             cout<<"rating "<<rating<<" out of 5"<<endl;

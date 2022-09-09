@@ -21,11 +21,11 @@ void QuickSort(int ar[],int l,int h){
     }
 }
 int main(){
-    int arr[7]={50,40,30,20,90,70,80};
-    QuickSort(arr,0,6);
-    for(int i=0;i<7;i++){
-        cout<<arr[i]<<" ";
-    }
+    int a[9]={50,70,60,90,40,80,10,20,30};
+	QuickSort(a,0,9);
+	for(int i=0;i<9;i++){
+		cout<<a[i]<<" ";
+	}
     cout<<"\n";
     return 0;
 }

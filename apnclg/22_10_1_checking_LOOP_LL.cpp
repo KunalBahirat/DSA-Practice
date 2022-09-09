@@ -32,7 +32,7 @@ LinkedList :: LinkedList(int arr[],int n){
         last->next=t;
         last=t;
     }
-    last->next = (head->next)->next;        // for arr1
+    last->next = head;        // for arr1
 
 }
 
@@ -84,6 +84,26 @@ void LinkedList :: removeLoop(node *p){
         q=q->next;
     }
     q->next=NULL;
+
+        //     Node *slow=head;
+        // Node *fast=head;
+        // while(fast){
+        //     slow=slow->next;
+        //     fast=fast->next;
+        //     if(fast) fast=fast->next;
+        //     if(slow==fast) break;
+        // }
+        // if(!fast) return;
+        // fast=head;
+        // if(slow==head){
+        //     while(slow->next!=fast) slow=slow->next;
+        //     slow->next=NULL;return;
+        // }
+        // while(fast->next!=slow->next){
+        //     fast=fast->next;
+        //     slow=slow->next;
+        // }
+        // slow->next=NULL;
 }
 
 int main(){

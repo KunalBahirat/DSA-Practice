@@ -18,7 +18,7 @@ class complex
     int a, b;
     //Declaring one function of class calculator as a friend function
     friend int calculator ::sumRealComplex(complex, complex);
-    //declaring entire class as a friend function
+    //declaring entire class as a friend class
     friend class calculator;
 
 public:

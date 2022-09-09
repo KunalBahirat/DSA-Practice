@@ -14,9 +14,9 @@ int main(){
     //------------Literals-----------------//
 
     
-    // long double a=34.5;
-    // cout<<"Size of a="<<sizeof(a)<<endl;
-    // cout<<"value of a="<<sizeof(int(a));
+    long double a=34.5;
+    cout<<"Size of a="<<sizeof(a)<<endl;
+    cout<<"value of a="<<sizeof(int(a));
     
     
 
