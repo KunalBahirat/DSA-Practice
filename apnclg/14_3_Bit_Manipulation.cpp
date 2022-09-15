@@ -1,4 +1,3 @@
-#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
     //program to find unique number in array where all except one are present twice
@@ -54,27 +53,36 @@ using namespace std;
 
 
 //by  bit manipulation
-void getbit(int xorSum){
-    int pos=0;int i=0;
-    while(1){
-        if((xorSum & (1<<i))!=1){
-            i++;
-        }
-        else{
-            cout<<i;
-            break;
-        }
-    }
-    
+unsigned int rightmost_setbit(int n){
+        return log2(n & ~(n-1));
 }
-void unique4(int a[],int n){
-    int xorSum=0;
-    for(int i=0;i<n;i++){
-        xorSum=xorSum^a[i];
+int rightmost_setbit1(int n){
+        return ffs(n)-1;
+}
+vector<int> singleNumber(vector<int> nums) 
+{
+    int xorsum=0;
+    for(int i=0;i<nums.size();i++){
+        xorsum^=nums[i];
     }
-    cout<<xorSum<<endl;
-    getbit(xorSum);
-
+    int pos=rightmost_setbit1(xorsum);
+    int x=0;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]& (1<<pos)){
+            x=x^nums[i];
+        }
+    }
+    vector <int> ans;
+    int second=x^xorsum;
+    if(x<second){
+        ans.push_back(x);
+        ans.push_back(second);
+    }
+    else {
+        ans.push_back(second);
+        ans.push_back(x);
+    }
+    return ans;
 }
 
 int main(){
@@ -86,7 +94,13 @@ int main(){
     int a[n]={1,2,3,1,2,3,5,7};
     // unique3(a,n);
     // cout<<endl;
-    unique4(a,n);
+   
+   
+    vector<int> v1={1,2,3,1,2,3,5,7};
+    vector<int> v= singleNumber(v1);
+    for(auto it: v){
+        cout<<it<<" ";
+    }
 
     return 0;
 }

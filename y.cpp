@@ -1,67 +1,53 @@
 #include <iostream>
 using namespace std;
-struct node
-    {
-        int data;
-        struct node* next;
+void heapify(int a[],int n){
     
-        node(int x){
-            data = x;
-            next = NULL;
+}
+int insert(int a[],int n){
+    int i=n;
+    int temp=a[n];
+    while(i>1 and a[i/2]<temp){
+        a[i]=a[i/2];
+        i/=2;
+    }
+    a[i]=temp;
+}
+void create_heap(int a[],int n){
+    for(int i=2;i<n;i++){
+        insert(a,i);
+    }
+}
+void delete_(int a[],int n){
+    int x=a[1];
+    a[1]=a[n];
+    int i=1;int j=i*2;
+    while(j<n){
+        if(a[j]<a[j+1]){
+            j++;
         }
+        if(a[i]<a[j]){
+            swap(a[i],a[j]);
+            i=j;
+            j*=2;
+        }
+        else break;
+    }
+    a[n]=x;
+}
+void heap_sort(int a[],int n){
+    create_heap(a,n);
     
-    }*head;
-
-class Solution
-{
-    public:
-    struct node *reverse (struct node *head, int k)
-    { 
-        if(head==NULL or head->next==NULL) return head;
-        node  *p=head,*q=NULL,*r=NULL;
-        int initK=k;
-        while(p and k>0){
-            r=q;
-            q=p;
-            p=p->next;
-            q->next=r;
-            k--;
-        }
-        node *nextNode=reverse(p,initK);
-        head->next=nextNode;
-        head=q;
-        return head;
+    for(int i=1;i<n;i++){
+        delete_(a,n-i);
     }
-};
-void print(node *head){
-    while(head){
-        cout<<head->data<<" ";
-        head=head->next; 
-    }
-    cout<<"\n";
 }
 int main(){
-    // head=new node(1);
-    // head->next=new node(2);
-    // head->next->next=new node(2);
-    // head->next->next->next=new node(4);
-    // head->next->next->next->next=new node(5);
-    // head->next->next->next->next->next=new node(6);
-    // head->next->next->next->next->next->next=new node(7);
-    // head->next->next->next->next->next->next->next=new node(8);
-    // head->next->next->next->next->next->next->next->next=NULL;
-    head=new node(1);
-    head->next=new node(2);
-    head->next->next=new node(3);
-    head->next->next->next=new node(4);
-    head->next->next->next->next=new node(5);
-    // head->next->next->next->next->next=new node(6);
-    // head->next->next->next->next->next->next=new node(7);
-    // head->next->next->next->next->next->next->next=new node(8);
-    head->next->next->next->next->next=NULL;
-    print(head);
-    Solution s;
-    node *root=s.reverse(head,3);
-    print(root);
+    int n=7;
+    int a[n]={0,12, 11, 13, 5, 6, 7};
+    // heap_sort(a,n);
+    heap_sort(a,n);
+    for(int i=1;i<n;i++){
+        cout<<a[i]<<" ";
+    }
     return 0;
 }
