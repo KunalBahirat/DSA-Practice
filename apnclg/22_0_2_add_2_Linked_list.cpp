@@ -72,7 +72,6 @@ struct Node {
         // code here
         first=reverseLL(first);
         second=reverseLL(second);
-        // Node *ans;
         Node * ans=add(first,second);
         
         return reverseLL(ans);
