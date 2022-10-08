@@ -403,9 +403,108 @@ int main(){
     // one.display(); 
 
 
+    return 0;
+}
 
 
-    
-
+// merge sort LL
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+struct Node {
+    int data;
+    struct Node* next;
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+class Solution{
+  public:
+    //Function to sort the given linked list using Merge Sort.
+    Node *findMid(Node *head){
+        if(head==NULL or head->next==NULL) return head;
+        Node *slow=head;
+        Node *fast=head->next;
+        while(fast!=NULL and fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            // if(fast) fast=fast
+        }
+        return slow;
+    }
+    Node *merge(Node *left,Node * right){
+        if(left==NULL) return right;
+        if(right==NULL) return left;
+        Node *result;Node *last;
+        if(left->data < right->data){
+            result=last=left;
+            left=left->next;
+            last->next=NULL;
+        }
+        else {
+            result=last=right;
+            right=right->next;
+            last->next=NULL;
+        }
+        while(left and right){
+            if(left->data < right->data){
+                last->next=left;
+                last=left;
+                left=left->next;
+            }
+            else{
+                last->next=right;
+                last=right;
+                right=right->next;
+            }
+        }
+         while(left){
+                last->next=left;
+                last=left;
+                left=left->next;
+        }
+         while(right){
+                last->next=right;
+                last=right;
+                right=right->next;
+        }
+        // last->next=NULL;
+        return result;
+        
+    }
+    Node* mergeSort(Node* head) {
+        // your code here
+        // base case
+        if(head==NULL || head->next==NULL) return head;
+        
+        // breaking list into 2 halvs
+        Node *mid=findMid(head);
+        
+        Node *left=head;
+        Node *right=mid->next;
+        mid->next=NULL;
+        
+        // recursion
+        left=mergeSort(left);
+        right=mergeSort(right);
+        // merging
+        Node *result=merge(left,right);
+        return result;
+    }
+};
+int main(){
+     Node *head=new Node(3);
+     head->next=new Node(5);
+     head->next->next=new Node(2);
+     head->next->next->next=new Node(4);
+     head->next->next->next->next=new Node(1);
+     head->next->next->next->next->next=NULL;
+     Solution s;
+     Node *x=s.mergeSort(head);
+     while(x){
+        cout<<x->data<<" ";
+        x=x->next;
+     }
     return 0;
 }
